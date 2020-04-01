@@ -4823,7 +4823,7 @@ section.lazy-placeholder:after {
 }
 .cid-rUSt6PFh3K {
   padding-top: 0px;
-  padding-bottom: 90px;
+  padding-bottom: 45px;
   background-color: #0f7699;
 }
 .cid-rUSt6PFh3K .title {
@@ -4848,4 +4848,16 @@ section.lazy-placeholder:after {
 .cid-rUSt6PFh3K LABEL {
   color: #ffffff;
   text-align: center;
+}
+.cid-rUSTb5L4TI {
+  padding-top: 0px;
+  padding-bottom: 90px;
+  background: linear-gradient(0deg, #0f7699, #0f7699);
+}
+.cid-rUSTb5L4TI .mbr-iconfont-social {
+  font-size: 32px;
+  color: #ff3366;
+}
+.cid-rUSTb5L4TI .social-list a:focus {
+  text-decoration: none;
 }

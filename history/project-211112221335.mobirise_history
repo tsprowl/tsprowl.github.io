@@ -51,7 +51,11 @@
     "gdpr": false,
     "uniqCompNum": 157,
     "versionPublish": "5.4.1",
-    "screenshot": "screenshot.png"
+    "screenshot": "screenshot.png",
+    "publishType": "local",
+    "gitHubName": "tsprowl",
+    "gitHubPath": "",
+    "publishPath": "@PROJECT_PATH@"
   },
   "pages": {
     "index.html": {

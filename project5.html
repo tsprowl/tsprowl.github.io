@@ -497,7 +497,7 @@
       analyser.getByteFrequencyData(results);
 
       for (i = 0; i < analyser.frequencyBinCount; i++){
-        console.log("fuck you" + results[i]);
+        //console.log("fuck you" + results[i]);
       }
       //console.log(analyser.getByteFrequencyData(results));
       
@@ -505,6 +505,8 @@
       gl.useProgram( simulationProgram )
 
       PARAMS.Sensor_Distance = analyser.getByteFrequencyData/4;
+
+      console.log(PARAMS.Sensor_Distance)
 
       gl.uniform1f(sensorDistanceLoc, PARAMS.Sensor_Distance)
 

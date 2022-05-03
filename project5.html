@@ -186,6 +186,8 @@
     });
 
     btn1.on('click', () => {
+      audioElement.pause();
+      audioElement.src = "The Whole Being Dead Thing.mp3";
       audioElement.play();
     });
 

@@ -285,7 +285,6 @@
       const drawFragmentShader = gl.createShader( gl.FRAGMENT_SHADER )
       gl.shaderSource( drawFragmentShader, shaderSource )
       gl.compileShader( drawFragmentShader )
-      console.log( gl.getShaderInfoLog(drawFragmentShader) )
 
       // create shader program  
       ddProgram = gl.createProgram()
@@ -329,7 +328,6 @@
       const drawFragmentShader = gl.createShader( gl.FRAGMENT_SHADER )
       gl.shaderSource( drawFragmentShader, shaderSource )
       gl.compileShader( drawFragmentShader )
-      console.log( gl.getShaderInfoLog(drawFragmentShader) )
 
       // create shader program  
       copyProgram = gl.createProgram()
@@ -396,7 +394,6 @@
       const simulationFragmentShader = gl.createShader( gl.FRAGMENT_SHADER )
       gl.shaderSource( simulationFragmentShader, shaderSource )
       gl.compileShader( simulationFragmentShader )
-      console.log( gl.getShaderInfoLog(simulationFragmentShader) )
       
       // create render program that draws to screen
       simulationProgram = gl.createProgram()
@@ -488,25 +485,16 @@
     }
 
     function render() {
-      //console.log(sensorDist)
       window.requestAnimationFrame( render )
-      analyser.getByteFrequencyData(results);
-      //console.log(results.length);
-      
 
-      for (i = 0; i < analyser.frequencyBinCount; i++){
-        //console.log("fuck you" + results[i]);
-      }
-      //console.log(analyser.getByteFrequencyData(results));
-      
+      analyser.getByteFrequencyData(results);
+    
       /* AGENT-BASED SIMULATION */
       gl.useProgram( simulationProgram )
 
       PARAMS.Sensor_Distance = (results[0] + results[1]/2 + results[2]/3 + results[3]/4)/38.89;
 
       PARAMS.Rotation_Amount = (results[11]/4 + results[12]/3 + results[13]/2 + results[14])/100;
-
-      console.log(PARAMS.Rotation_Amount)
 
       gl.uniform1f(sensorDistanceLoc, PARAMS.Sensor_Distance)
       gl.uniform1f(rotationLoc, PARAMS.Rotation_Amount);

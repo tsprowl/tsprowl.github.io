@@ -6,7 +6,7 @@
   </head>
   <body>
     <canvas id='gl'></canvas>
-    <audio src=""></audio>
+    <audio id="audio" src=""></audio>
   </body>
 
 
@@ -179,7 +179,7 @@
     var AudioContext = window.AudioContext || window.webkitAudioContext;
     var audioContext = new AudioContext();
 
-    var audioElement = document.createElement("audio");
+    var audioElement = document.getElementById("audio");
     audioElement.setAttribute("crossorigin", "anonymous");
 
     var analyser = audioContext.createAnalyser();

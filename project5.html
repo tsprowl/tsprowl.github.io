@@ -44,6 +44,8 @@
     in vec4 a_pos;
     
     uniform vec2 resolution;
+
+    uniform float sensorDist;
     
     // our chemical layer
     uniform sampler2D uSampler;
@@ -78,7 +80,7 @@
       vec2 pixel = 1. / resolution;
     
       // how far ahead should sensing occur? this is fun to play with
-      vec2 sensorDistance = pixel * 9.;
+      vec2 sensorDistance = pixel * sensorDist;
     
       // normalize our {-1,1} vertex coordinates to {0,1} for texture lookups
       vec2 pos = (1. + a_pos.xy) / 2.;
@@ -164,6 +166,12 @@
         dimensions = { width:null, height:null },
         agentCount = 1000000
 
+        let sensorDistanceLoc
+
+        const PARAMS = {
+          Sensor_Distance: 9.0
+        }
+
     const AudioContext = window.AudioContext || window.webkitAudioContext;
     const audioContext = new AudioContext();
 
@@ -186,6 +194,13 @@
 
     
     const pane = new Tweakpane.Pane();
+    const v1 = pane.addFolder({
+      title: 'Options',
+      expanded: true,
+    })
+
+    v1.addInput(PARAMS, 'Sensor_Distance', {min: 1.0, max: 500.0});
+
     const btn1 = pane.addButton({
       title: 'The Whole Being Mold Thing',
     });
@@ -235,6 +250,8 @@
       audioElement.src = "Our Love Is God.mp3";
       audioElement.play();
     });
+
+    noPreset = pane.exportPreset();
     
 
     window.onload = function() {
@@ -434,6 +451,7 @@
 
     function makeSimulationUniforms() {
       uRes = gl.getUniformLocation( simulationProgram, 'resolution' )
+      sensorDistanceLoc = gl.getUniformLocation(simulationProgram, 'sensorDist')
       gl.uniform2f( uRes, gl.drawingBufferWidth, gl.drawingBufferHeight )
        
       // get position attribute location in shader
@@ -474,6 +492,7 @@
     }
 
     function render() {
+      //console.log(sensorDist)
       window.requestAnimationFrame( render )
       analyser.getByteFrequencyData(results);
 
@@ -484,6 +503,10 @@
       
       /* AGENT-BASED SIMULATION */
       gl.useProgram( simulationProgram )
+
+      PARAMS.Sensor_Distance = analyser.getByteFrequencyData/4;
+
+      gl.uniform1f(sensorDistanceLoc, PARAMS.Sensor_Distance)
 
       gl.bindFramebuffer( gl.FRAMEBUFFER, framebuffer )
 

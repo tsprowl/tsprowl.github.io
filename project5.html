@@ -175,20 +175,15 @@
           Rotation_Amount: .3073297161
         }
 
-    const AudioContext = window.AudioContext || window.webkitAudioContext;
-    const audioContext = new AudioContext();
+    var AudioContext = window.AudioContext || window.webkitAudioContext;
+    var audioContext = new AudioContext();
 
-    
+    audioElement = document.createElement("audio");
+    audioElement.setAttribute("crossorigin", "anonymous");
 
-   audioElement = document.createElement("audio");
-   audioElement.setAttribute("crossorigin", "anonymous");
-
-   
-   var analyser = audioContext.createAnalyser();
-   analyser.fftSize = 32;
+    var analyser = audioContext.createAnalyser();
+    analyser.fftSize = 32;
     var source = audioContext.createMediaElementSource(audioElement);
-
-   //audioElement.src = "priest.mp3";
 
    source.connect(analyser);
    source.connect(audioContext.destination);

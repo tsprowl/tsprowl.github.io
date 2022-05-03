@@ -2,6 +2,7 @@
 <html lang='en'>
   <head>
     <style>body{ margin:0; background: black; }</style>
+    <title>Physarum Physarum Physarum</title>
   </head>
   <body>
     <canvas id='gl'></canvas>
@@ -166,18 +167,18 @@
     const AudioContext = window.AudioContext || window.webkitAudioContext;
     const audioContext = new AudioContext();
 
-    // get the audio element
-    //const audioElement = document.querySelector('audio');
-
-    // pass it into the audio context
-    //const track = audioContext.createMediaElementSource(audioElement);
-
-   // track.connect(audioContext.destination);
+    
 
    audioElement = document.createElement("audio");
    audioElement.setAttribute("crossorigin", "anonymous");
 
-   audioElement.src = "priest.mp3";
+   
+   var analyser = audioContext.createAnalyser();
+    var source = audioContext.createMediaElementSource(audioElement);
+
+   //audioElement.src = "priest.mp3";
+
+   source.connect(analyser);
 
     
     const pane = new Tweakpane.Pane();
@@ -469,6 +470,9 @@
     }
 
     function render() {
+      analyser.fftSize = 64;
+      var frequencyData = new Uint8Array(analyser.frequencyBinCount);
+      console.log(analyser.getByteFrequencyData(frequencyData));
       window.requestAnimationFrame( render )
       
       /* AGENT-BASED SIMULATION */

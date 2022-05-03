@@ -179,6 +179,7 @@
    //audioElement.src = "priest.mp3";
 
    source.connect(analyser);
+   analyser.connect(audioContext.destination);
 
     
     const pane = new Tweakpane.Pane();

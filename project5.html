@@ -475,7 +475,12 @@
 
     function render() {
       window.requestAnimationFrame( render )
-      console.log(analyser.getByteFrequencyData(results));
+      analyser.getByteFrequencyData(results);
+
+      for (i = 0; i < analyser.frequencyBinCount; i++){
+        console.log("fuck you" + results[i]);
+      }
+      //console.log(analyser.getByteFrequencyData(results));
       
       /* AGENT-BASED SIMULATION */
       gl.useProgram( simulationProgram )

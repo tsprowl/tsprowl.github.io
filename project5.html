@@ -495,6 +495,8 @@
       //console.log(sensorDist)
       window.requestAnimationFrame( render )
       analyser.getByteFrequencyData(results);
+      //console.log(results.length);
+      
 
       for (i = 0; i < analyser.frequencyBinCount; i++){
         //console.log("fuck you" + results[i]);
@@ -504,7 +506,7 @@
       /* AGENT-BASED SIMULATION */
       gl.useProgram( simulationProgram )
 
-      PARAMS.Sensor_Distance = results[0]/4;
+      PARAMS.Sensor_Distance = (results[0]/4 + results[1]/4 + results[2]/4 + results[3])/4;
 
       console.log(PARAMS.Sensor_Distance)
 

@@ -174,12 +174,15 @@
 
    
    var analyser = audioContext.createAnalyser();
+   analyser.fftSize = 32;
     var source = audioContext.createMediaElementSource(audioElement);
 
    //audioElement.src = "priest.mp3";
 
    source.connect(analyser);
    source.connect(audioContext.destination);
+
+   var results = new Uint8Array(analyser.frequencyBinCount);
 
     
     const pane = new Tweakpane.Pane();
@@ -471,10 +474,8 @@
     }
 
     function render() {
-      analyser.fftSize = 64;
-      var frequencyData = new Uint8Array(analyser.frequencyBinCount);
-      console.log(analyser.getByteFrequencyData(frequencyData));
       window.requestAnimationFrame( render )
+      console.log(analyser.getByteFrequencyData(results));
       
       /* AGENT-BASED SIMULATION */
       gl.useProgram( simulationProgram )

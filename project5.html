@@ -6,7 +6,7 @@
   <body>
     <canvas id='gl'></canvas>
   </body>
-  <audio src="priest.mp3"></audio>
+
 
   <script src="https://cdn.jsdelivr.net/npm/tweakpane@3.0.8/dist/tweakpane.min.js"></script>
 
@@ -166,14 +166,18 @@
     const AudioContext = window.AudioContext || window.webkitAudioContext;
     const audioContext = new AudioContext();
 
-
     // get the audio element
-    const audioElement = document.querySelector('audio');
+    //const audioElement = document.querySelector('audio');
 
     // pass it into the audio context
-    const track = audioContext.createMediaElementSource(audioElement);
+    //const track = audioContext.createMediaElementSource(audioElement);
 
-    track.connect(audioContext.destination);
+   // track.connect(audioContext.destination);
+
+   audioElement = document.createElement("audio");
+   audioElement.setAttribute("crossorigin", "anonymous");
+
+   audioElement.src = "priest.mp3";
 
     
     const pane = new Tweakpane.Pane();

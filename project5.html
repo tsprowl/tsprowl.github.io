@@ -181,13 +181,46 @@
 
     
     const pane = new Tweakpane.Pane();
-    const btn = pane.addButton({
-      title: 'Play',
+    const btn1 = pane.addButton({
+      title: 'The Whole Being Mold Thing',
     });
 
-    btn.on('click', () => {
+    btn1.on('click', () => {
       audioElement.play();
-    })
+    });
+
+    const btn2 = pane.addButton({
+      title: 'Creepy Mold Guy',
+    });
+
+    btn2.on('click', () => {
+      audioElement.play();
+    });
+
+    const btn3 = pane.addButton({
+      title: 'Dead Mold',
+    });
+
+    btn3.on('click', () => {
+      audioElement.play();
+    });
+
+    const btn4 = pane.addButton({
+      title: 'My Dead Gay Mold',
+    });
+
+    btn4.on('click', () => {
+      audioElement.play();
+    });
+
+    const btn5 = pane.addButton({
+      title: 'Our Mold is God',
+    });
+
+    btn5.on('click', () => {
+      audioElement.play();
+    });
+    
 
     window.onload = function() {
       const canvas = document.getElementById( 'gl' )

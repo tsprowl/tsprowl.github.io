@@ -447,7 +447,7 @@ var GAME = ( function () {
 			rowCounterPlayer += 1;
 			nextLevel = 1;
 		}
-		PS.statusText("Gracious victory. Reload to play again, if you choose.");
+		PS.statusText("Gracious victory. Reload to win again.");
 	};
 
 	var winOpponent3 = function() {

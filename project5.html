@@ -180,7 +180,7 @@
 
 
     var AudioContext = window.AudioContext || window.webkitAudioContext;
-    var audioContext;
+    var audioContext = new AudioContext();
 
     var analyser = audioContext.createAnalyser();
     analyser.fftSize = 32;

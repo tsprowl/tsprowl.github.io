@@ -180,7 +180,9 @@
 
 
     var AudioContext = window.AudioContext || window.webkitAudioContext;
-    var audioContext = new AudioContext();
+    var audioContext;
+
+    
 
 
 
@@ -201,6 +203,9 @@
     });
 
     btn1.on('click', () => {
+      if ((!audioContext) || (audioContext == null)){
+      var audioContext = new AudioContext();
+    }
       audioElement.pause();
       audioElement.src = "The Whole Being Dead Thing.mp3";
       audioElement.play();

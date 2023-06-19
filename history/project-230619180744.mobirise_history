@@ -57,8 +57,10 @@
     "cookiesAlert": false,
     "gdpr": false,
     "uniqCompNum": 292,
-    "versionPublish": "5.8.14",
+    "versionPublish": "5.6.11",
     "screenshot": "screenshot.png",
+    "publishType": "local",
+    "publishPath": "@PROJECT_PATH@",
     "mbrsiteDomain": "q3pwpyqjfk"
   },
   "pages": {

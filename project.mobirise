@@ -61,6 +61,8 @@
     "versionPublish": "5.8.14",
     "screenshot": "screenshot.png",
     "mbrsiteDomain": "fehnulybtn",
+    "publishType": "local",
+    "publishPath": "@PROJECT_PATH@",
     "usedWebp": false
   },
   "pages": {
